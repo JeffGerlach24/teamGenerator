@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/JeffGerlach24/teamGenerator/issues"
   },
-  "homepage": "https://github.com/JeffGerlach24/teamGenerator#readme"
+  "homepage": "https://github.com/JeffGerlach24/teamGenerator#readme",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }

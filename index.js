@@ -1,12 +1,11 @@
-
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateTeam = require("./src/page-template.js");
+const generateTeam = require("./source/sourcePage");
 
 
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const Manager = require("./lib/Manager");
+const Engineer = require("./js/Engineer");
+const Intern = require("./js/Intern");
+const Manager = require("./js/Manager");
 
 const newStaffMemberData = [];
 
@@ -36,8 +35,6 @@ const questions = async () => {
       },
     ])
 
-
-      // if manager selected, answer these specific question
       if (answers.role === "Manager") {
         const managerAns = await inquirer
           .prompt([
@@ -55,7 +52,6 @@ const questions = async () => {
           );
           newStaffMemberData.push(newManager);
           
-        // if engineer selected answer these set of questions
       } else if (answers.role === "Engineer") {
         const githubAns = await inquirer
           .prompt([
@@ -72,8 +68,7 @@ const questions = async () => {
               githubAns.github
             );
             newStaffMemberData.push(newEngineer);
-          
-        // if intern selected answer these set of questions
+
       } else if (answers.role === "Intern") {
         const internAns = await inquirer
           .prompt([
@@ -94,7 +89,6 @@ const questions = async () => {
       } 
 
 }; 
-//end of questions function
 
 async function promptQuestions() {
   await questions()
